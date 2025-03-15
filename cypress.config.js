@@ -7,5 +7,7 @@ module.exports = defineConfig({
     },
     watchForFileChanges: false,
     chromeWebSecurity: false,
+    viewportWidth: 1280,
+    viewportHeight: 720,
   },
 });
