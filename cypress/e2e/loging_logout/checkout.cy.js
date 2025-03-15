@@ -8,7 +8,7 @@ describe("login test", () => {
         cy.login('standard_user', 'secret_sauce')
     })
     
-    it.only('Should checkout the item', () => {
+    it('Should checkout the item', () => {
         invPage.elements.back_pack_add_cart_btn().should('have.text', 'Add to cart')
         invPage.clickCartBtnBackpack()
         invPage.elements.back_pack_remove_cart_btn().should('have.text', 'Remove')
