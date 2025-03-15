@@ -10,6 +10,12 @@ class homePage{
         error_icon : () => cy.get('[data-icon="times-circle"]')
     }
 
+    enterUsername(username){
+        this.elements.user_name().type(username)
+    }
+    enterPassword(pass){
+        this.elements.password().type(pass)
+    }
     enterCreds(username, pass){
         this.elements.user_name().type(username)
         this.elements.password().type(pass)
