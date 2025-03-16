@@ -41,7 +41,12 @@ class invPage{
     clickCartBtn(){
         this.elements.cart_btn().click()
     }
-
+    addItemToCart(){
+        this.elements.back_pack_add_cart_btn().should('have.text', 'Add to cart')
+        this.addFirstItemToCart()
+        this.elements.back_pack_remove_cart_btn().should('have.text', 'Remove')
+        this.elements.cart_badge().should('be.visible')
+    }
 }
 
 module.exports = new invPage();

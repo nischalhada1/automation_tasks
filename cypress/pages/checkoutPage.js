@@ -10,6 +10,8 @@ class checkoutPage{
         cancel_btn : () => cy.get('[data-test="cancel"]'),
         title_header : () => cy.get('[data-test="complete-header"]'),
         back_to_produce_btn : () => cy.get('[data-test="back-to-products"]'),
+        inv_item : () => cy.get('[data-test="inventory-item"]'),
+        checkout_btn : () => cy.get('[data-test="checkout"]'),
     }
 
     enterFirstName(fname){
@@ -29,6 +31,24 @@ class checkoutPage{
     }
     clickBackToProductBtn(){
         this.elements.back_to_produce_btn().click()
+    }
+    checkoutItem(){
+        this.elements.page_title().should('have.text', 'Your Cart')
+        this.elements.inv_item().should('be.visible')
+        this.elements.checkout_btn().click()
+    }
+    completeCheckoutProcess(){
+        this.elements.page_title().should('have.text', 'Checkout: Your Information')
+        this.elements.page_title().should('have.text', 'Checkout: Your Information')
+        this.enterFirstName('Demo')
+        this.enterLastName('user')
+        this.enterPostalCode('123456')
+        this.clickContinueBtn()
+        this.elements.page_title().should('have.text', 'Checkout: Overview')
+        this.clickFinishBtn()
+        this.elements.page_title().should('have.text', 'Checkout: Complete!')
+        this.elements.title_header().should('have.text', 'Thank you for your order!')
+        this.clickBackToProductBtn()
     }
 }
 
